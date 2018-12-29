@@ -13,9 +13,14 @@ Acesse o terminal (no Windows o Git Bash) na pasta do projeto:
 heroku config | grep CLEARDB_DATABASE_URL
 
 Com base nos dados da URL de conexão, monte o comando para executar o arquivo SQL no servidor:
-mysql --host=us-cdbr-iron-east-05.cleardb.net --user=b8782e4e3f88f4 --password=b9748a8b --reconnect heroku_71216a81091a2da < arquivo.sql
+exemplo: mysql --host=us-cdbr-iron-east-05.cleardb.net --user=b8782e4e3f88f4 --password=b9748a8b --reconnect heroku_71216a81091a2da < arquivo.sql
 
+CLEARDB_DATABASE_URL (url da base de dados):
+________USUARIO:_______SENHA:___HOST:____________________________BASE:
+mysql://bbf278a29d48fa:5224c2f3@us-cdbr-iron-east-01.cleardb.net/heroku_e01a637fe70c648?reconnect=true
 
+REAL DO IGREJASONLINE:
+mysql --host=us-cdbr-iron-east-01.cleardb.net --user=bbf278a29d48fa --password=5224c2f3 --reconnect heroku_e01a637fe70c648 < arquivo.sql
 ____________________________________________________________________________________
 
 
