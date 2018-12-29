@@ -21,52 +21,9 @@ mysql://bbf278a29d48fa:5224c2f3@us-cdbr-iron-east-01.cleardb.net/heroku_e01a637f
 
 REAL DO IGREJASONLINE:
 mysql --host=us-cdbr-iron-east-01.cleardb.net --user=bbf278a29d48fa --password=5224c2f3 --reconnect heroku_e01a637fe70c648 < arquivo.sql
-____________________________________________________________________________________
-
-
-
-04/12/18 Reuniao para definição das atividades para encerramento.
-Reestruturar o fonte (remoção de classes não críticas para o projeto visando o término da versão beta)
-	- Remover Responsável	
-Fazer o crud de igreja
-Fazer o crud de entidade
-Fazer o crud de evento
-
-
-
 
 
 ____________________________________________________________________________________
-
-Classe evento
-Alteracos no id
--publico pode ser tipo enumerado
-tratar dataInicio como tipo date
-tratar dataTermino como tipo date
-
-Criar tipo endereco
-incluir endereco em todas as classes
-
-Padronizar as buscas das classes por id
-
-
-Entrega 2
-
-Criar Classe Estado
-Criar Classe Cidade
-Criar Classe Endereco
-Criar persitencia no banco de dados para as classes Estado e Cidade
-Mapear relacionamento entre entidades Estado e Cidade
-Tratar recursividade entre Estado e Cidade
-Gerar chave primaria automaticamente pelo banco
-Criar associacoes entre a classe Endereco e as classes Responsavel, Igreja e Entidade 
-
-
-Entrega 3
-Relacionar igreja e endereco
-Relacionar igreja e responsave
-Relacionar igreja e entidade
-Relacionar igreja e evento
 
 
 

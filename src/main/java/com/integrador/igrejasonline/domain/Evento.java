@@ -21,8 +21,8 @@ public class Evento implements Serializable {
 
 	private String titulo;
 	private String dataInicio;
-	private String dataTermino;
 	private String horaInicio;
+	private String dataTermino;
 	private String horaTermino;
 	private String descricao;
 	private String publico;
@@ -37,14 +37,14 @@ public class Evento implements Serializable {
 	@JoinColumn(name = "igreja_id")
 	private Igreja igreja;
 
-	public Evento(Integer id, String titulo, String dataInicio, String dataTermino, String horaInicio,
+	public Evento(Integer id, String titulo, String dataInicio, String horaInicio, String dataTermino, 
 			String horaTermino, String descricao, String publico, boolean repete, Endereco endereco, Igreja igreja) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
 		this.dataInicio = dataInicio;
-		this.dataTermino = dataTermino;
 		this.horaInicio = dataInicio;
+		this.dataTermino = dataTermino;
 		this.horaTermino = dataTermino;
 		this.descricao = descricao;
 		this.publico = publico;
@@ -67,11 +67,11 @@ public class Evento implements Serializable {
 	public String getDataInicio() {return dataInicio;}
 	public void setDataInicio(String dataInicio) {this.dataInicio = dataInicio;}
 	
-	public String getDataTermino() {return dataTermino;}
-	public void setDataTermino(String dataTermino) {this.dataTermino = dataTermino;}
-	
 	public String getHoraInicio() {return horaInicio;}
 	public void setHoraInicio(String horaInicio) {this.horaInicio = horaInicio;}
+	
+	public String getDataTermino() {return dataTermino;}
+	public void setDataTermino(String dataTermino) {this.dataTermino = dataTermino;}
 	
 	public String getHoraTermino() {return horaTermino;}
 	public void setHoraTermino(String horaTermino) {this.horaTermino = horaTermino;}
