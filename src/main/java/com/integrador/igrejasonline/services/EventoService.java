@@ -73,8 +73,8 @@ public class EventoService {
 	private void updateData(Evento newObj, Evento obj) {
 		newObj.setTitulo(obj.getTitulo());
 		newObj.setDataInicio(obj.getDataInicio());
-		newObj.setDataTermino(obj.getDataTermino());
 		newObj.setHoraInicio(obj.getHoraInicio());
+		newObj.setDataTermino(obj.getDataTermino());
 		newObj.setHoraTermino(obj.getHoraTermino());
 		newObj.setDescricao(obj.getDescricao());
 		newObj.setPublico(obj.getPublico());

@@ -37,15 +37,15 @@ public class Evento implements Serializable {
 	@JoinColumn(name = "igreja_id")
 	private Igreja igreja;
 
-	public Evento(Integer id, String titulo, String dataInicio, String horaInicio, String dataTermino, 
-			String horaTermino, String descricao, String publico, boolean repete, Endereco endereco, Igreja igreja) {
+	public Evento(Integer id, String titulo, String dataInicio, String horaInicio, String dataTermino, String horaTermino,
+			String descricao, String publico, boolean repete, Endereco endereco, Igreja igreja) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
 		this.dataInicio = dataInicio;
-		this.horaInicio = dataInicio;
+		this.horaInicio = horaInicio;
 		this.dataTermino = dataTermino;
-		this.horaTermino = dataTermino;
+		this.horaTermino = horaTermino;
 		this.descricao = descricao;
 		this.publico = publico;
 		this.repete = repete;
