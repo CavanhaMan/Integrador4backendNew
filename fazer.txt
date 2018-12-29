@@ -1,3 +1,25 @@
+Gerando arquivo do banco de dados atualizado:
+mysqldump -u root -p igrejasonline > arquivo.sql
+
+No terminal:
+heroku login
+(entrar email e senha)
+
+Acessando o repositorio local com o Heroku:
+heroku git:remote -a igrejasonline
+
+Obtenha a URL do banco de dados
+Acesse o terminal (no Windows o Git Bash) na pasta do projeto:
+heroku config | grep CLEARDB_DATABASE_URL
+
+Com base nos dados da URL de conexão, monte o comando para executar o arquivo SQL no servidor:
+mysql --host=us-cdbr-iron-east-05.cleardb.net --user=b8782e4e3f88f4 --password=b9748a8b --reconnect heroku_71216a81091a2da < arquivo.sql
+
+
+____________________________________________________________________________________
+
+
+
 04/12/18 Reuniao para definição das atividades para encerramento.
 Reestruturar o fonte (remoção de classes não críticas para o projeto visando o término da versão beta)
 	- Remover Responsável	

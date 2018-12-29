@@ -31,7 +31,7 @@ public class DBService {
 	private EnderecoRepository enderecoRepository;
 	@Autowired
 	private EntidadeRepository entidadeRepository;
-  @Autowired
+	@Autowired
 	private EventoRepository eventoRepository;
 	
 	public void instantiateTestDatabase() throws ParseException {
@@ -68,19 +68,23 @@ public class DBService {
 		Cidade cidade1 = new Cidade(null, "Uberlândia", estado13);//2389
 		Cidade cidade2 = new Cidade(null, "São Paulo", estado25);//5270
 		Cidade cidade3 = new Cidade(null, "Campinas", estado25);//4814
+		Cidade cidade4 = new Cidade(null, "Alegre", estado8);//4814
+		Cidade cidade5 = new Cidade(null, "Alfredo Chaves", estado8);//4814
 
 		estado1.getCidades().addAll(Arrays.asList(cidade1));
 		estado2.getCidades().addAll(Arrays.asList(cidade2, cidade3));
 		estadoRepository.saveAll(Arrays.asList(estado1,  estado2,  estado3,  estado4,  estado5,  estado6,  estado7,  estado8,  estado9,  estado10,
 											   estado11, estado12, estado13, estado14, estado15, estado16, estado17, estado18, estado19, estado20,
 											   estado21, estado22, estado23, estado24, estado25, estado26, estado27));
-		cidadeRepository.saveAll(Arrays.asList(cidade1, cidade2, cidade3));
+		cidadeRepository.saveAll(Arrays.asList(cidade1, cidade2, cidade3, cidade4, cidade5));
 
 		Endereco ende1 = new Endereco(null, "Rua do cavalo", "13", "Casa 1", "São Bento", "122334", cidade1);
 		Endereco ende2 = new Endereco(null, "Rua do André", "34", "Casa", "São Bento mais 2", "76765", cidade2);
 		Endereco ende3 = new Endereco(null, "Rua da Manga", "135", "Apt", "Santo Andre", "87655", cidade3);
+		Endereco ende4 = new Endereco(null, "Rua 1", "5", "Centro", "Santa Monica", "38408", cidade1);
+		Endereco ende5 = new Endereco(null, "Rua 1", "5", "Fundos", "Santa Monica", "38408", cidade1);
 
-		enderecoRepository.saveAll(Arrays.asList(ende1, ende2, ende3));
+		enderecoRepository.saveAll(Arrays.asList(ende1, ende2, ende3, ende4, ende5));
 		
 		Entidade ent1 = new Entidade(1,"União da Mocidade Presbiteriana","999085674", ende2);
 		Entidade ent2 = new Entidade(2,"União Presbiteriana de Adolescentes","999085675", ende1);
@@ -130,34 +134,35 @@ public class DBService {
 		Evento ev3 = new Evento(null, "Dia da Mulher Presbiteriana", "11022018", "18:00", "11022018", "20:00","Culto com comemoração", "Todos", false, ende3,ig1);
 		Evento ev4 = new Evento(null, "Dia do Jovem Presbiteriano", "20052018", "18:00", "20052018", "20:00","Culto com comemoração", "Todos", false, ende3,ig4);
 		Evento ev5 = new Evento(null, "Dia do Adolescente Presbiteriano", "13052018", "18:00", "13052018", "20:00","Culto com comemoração", "Todos", false, ende1,ig1);
-/*
-		Evento ev6 = new Evento(null, "Semana Universal de Oração", "1012018", "18:00", "1712018", "20:00","Reunião de Oração", "Todos", false, ende2);
-		Evento ev7 = new Evento(null, "Dia das Mães", "13052018", "18:00", "13052018", "20:00", "Culto com comemoração","Todos", false, ende1);
-		Evento ev8 = new Evento(null, "Acampadentro IP Central", "18042018", "10:00", "22042018", "12:00","Retiro Espiritual", "Adolescentes", false, ende1);
-		Evento ev9 = new Evento(null, "Acampamento Jovem", "18042018", "17:00", "22042018", "19:00", "Retiro Espiritual","Jovens", false, ende2);
-		Evento ev10 = new Evento(null, "Culto", "21082018", "18:00", "21082018", "20:00", "Culto Dominical", "Todos",true, ende2);
-		Evento ev11 = new Evento(null, "Reunião Semanal", "24082018", "19:30", "24082018", "21:30","Estudo Bíblico Semanal", "Todos", true, ende3);
-		Evento ev12 = new Evento(null, "Escola Dominical", "21082018", "09:00", "21082018", "11:00","Escola Bíblica Dominical", "Todos", true, ende1);
-		Evento ev13 = new Evento(null, "Reunião UPA", "19082018", "19:30", "19082018", "21:30","Reunião Semanal de Adolescentes", "Adolescentes", true, ende2);
-		Evento ev14 = new Evento(null, "Reunião Mocidade", "20082018", "19:30", "20082018", "21:30","Reunião Semanal de Jovens", "Jovens", true, ende1);
-		Evento ev15 = new Evento(null, "Grupo de Louvor Boanerges", "20082018", "17:00", "20082018", "19:00","Ensaio Semanal", "Grupo", true, ende3);
-		Evento ev16 = new Evento(null, "Grupo de Estudo Valentes de Davi", "22082018", "20:00", "22082018", "22:00","Reunião Semanal", "Grupo", true, ende3);
-		Evento ev17 = new Evento(null, "Clube de Oração Debora", "23082018", "07:00", "23082018", "09:00","Reunião de Oração Semanal", "Grupo", true, ende1);
-		Evento ev18 = new Evento(null, "Coralito Cordeiros de Jesus", "21082018", "11:00", "21082018", "13:00","Ensaio Mensal", "Coral", true, ende2);
-		Evento ev19 = new Evento(null, "Grupo de Mulheres Rute", "25082018", "20:00", "25082018", "22:00","Reunião Semanal", "Mulheres", true, ende3);
-		Evento ev20 = new Evento(null, "Grupo de Comunhão Castelo Forte", "22082018", "19:30", "22082018", "21:30","Reunião Semanal", "Grupo", true, ende2);
-		Evento ev21 = new Evento(null, "União das Crianças Presbiterianas", "19082018", "19:30", "19082018", "21:30","Reunião Semanal", "Crianças", true, ende3);
-		Evento ev22 = new Evento(null, "União de Jovens Batistas", "20082018", "19:30", "20082018", "21:30","Reunião Semanal", "Jovens", true, ende1);
-		Evento ev23 = new Evento(null, "União Batista de Adolescentes", "20082018", "17:00", "20082018", "19:00","Reunião Semanal", "Adolescentes", true, ende1);
-		Evento ev24 = new Evento(null, "Grupo de Louvor El Shaday", "22082018", "20:00", "22082018", "22:00","Ensaio Semanal", "Grupo", true, ende3);
-		Evento ev25 = new Evento(null, "Grupo de Oração Elohin", "23082018", "07:00", "23082018", "09:00","Reunião Semanal", "Grupo", true, ende2);
-		Evento ev26 = new Evento(null, "Grupo de Estudo Manain", "21082018", "11:00", "21082018", "13:00","Reunião Semanal", "Grupo", true, ende1);
-		Evento ev27 = new Evento(null, "Grupo de Estudos Maná", "25082018", "20:00", "25082018", "22:00","Reunião Semanal", "Grupo", true, ende3);
-		Evento ev28 = new Evento(null, "União Presbiteriana de Homens", "22082018", "19:30", "22082018", "21:30","Reunião Mensal", "Homens", false, ende2);
-		Evento ev29 = new Evento(null, "Grupo de Estudo Alfa e Ômega", "21082018", "20:00", "21082018", "22:00","Reunião Semanal", "Grupo", true, ende1);
-		Evento ev30 = new Evento(null, "Coral Central", "25082018", "07:00", "25082018", "09:00", "Ensaio Semanal","Coral", true, ende3);
-*/
-		eventoRepository.saveAll(Arrays.asList(ev1, ev2, ev3, ev4, ev5));
+		Evento ev6 = new Evento(null, "Semana Universal de Oração", "1012018", "18:00", "1712018", "20:00","Reunião de Oração", "Todos", false, ende2,ig2);
+		Evento ev7 = new Evento(null, "Dia das Mães", "13052018", "18:00", "13052018", "20:00", "Culto com comemoração","Todos", false, ende1,ig4);
+		Evento ev8 = new Evento(null, "Acampadentro IP Central", "18042018", "10:00", "22042018", "12:00","Retiro Espiritual", "Adolescentes", false, ende1,ig1);
+		Evento ev9 = new Evento(null, "Acampamento Jovem", "18042018", "17:00", "22042018", "19:00", "Retiro Espiritual","Jovens", false, ende2,ig2);
+		Evento ev10 = new Evento(null, "Culto", "21082018", "18:00", "21082018", "20:00", "Culto Dominical", "Todos",true, ende5,ig4);
+		Evento ev11 = new Evento(null, "Reunião Semanal", "24082018", "19:30", "24082018", "21:30","Estudo Bíblico Semanal", "Todos", true, ende3,ig4);
+		Evento ev12 = new Evento(null, "Escola Dominical", "21082018", "09:00", "21082018", "11:00","Escola Bíblica Dominical", "Todos", true, ende1,ig1);
+		Evento ev13 = new Evento(null, "Reunião UPA", "19082018", "19:30", "19082018", "21:30","Reunião Semanal de Adolescentes", "Adolescentes", true, ende2,ig1);
+		Evento ev14 = new Evento(null, "Reunião Mocidade", "20082018", "19:30", "20082018", "21:30","Reunião Semanal de Jovens", "Jovens", true, ende1,ig1);
+		Evento ev15 = new Evento(null, "Grupo de Louvor Boanerges", "20082018", "17:00", "20082018", "19:00","Ensaio Semanal", "Grupo", true, ende3,ig4);
+		Evento ev16 = new Evento(null, "Grupo de Estudo Valentes de Davi", "22082018", "20:00", "22082018", "22:00","Reunião Semanal", "Grupo", true, ende3,ig4);
+		Evento ev17 = new Evento(null, "Clube de Oração Debora", "23082018", "07:00", "23082018", "09:00","Reunião de Oração Semanal", "Grupo", true, ende1,ig3);
+		Evento ev18 = new Evento(null, "Coralito Cordeiros de Jesus", "21082018", "11:00", "21082018", "13:00","Ensaio Mensal", "Coral", true, ende4,ig3);
+		Evento ev19 = new Evento(null, "Grupo de Mulheres Rute", "25082018", "20:00", "25082018", "22:00","Reunião Semanal", "Mulheres", true, ende5,ig2);
+		Evento ev20 = new Evento(null, "Grupo de Comunhão Castelo Forte", "22082018", "19:30", "22082018", "21:30","Reunião Semanal", "Grupo", true, ende2,ig2);
+		Evento ev21 = new Evento(null, "União das Crianças Presbiterianas", "19082018", "19:30", "19082018", "21:30","Reunião Semanal", "Crianças", true, ende3,ig1);
+		Evento ev22 = new Evento(null, "União de Jovens Batistas", "20082018", "19:30", "20082018", "21:30","Reunião Semanal", "Jovens", true, ende1,ig1);
+		Evento ev23 = new Evento(null, "União Batista de Adolescentes", "20082018", "17:00", "20082018", "19:00","Reunião Semanal", "Adolescentes", true, ende1,ig1);
+		Evento ev24 = new Evento(null, "Grupo de Louvor El Shaday", "22082018", "20:00", "22082018", "22:00","Ensaio Semanal", "Grupo", true, ende3,ig3);
+		Evento ev25 = new Evento(null, "Grupo de Oração Elohin", "23082018", "07:00", "23082018", "09:00","Reunião Semanal", "Grupo", true, ende2,ig2);
+		Evento ev26 = new Evento(null, "Grupo de Estudo Manain", "21082018", "11:00", "21082018", "13:00","Reunião Semanal", "Grupo", true, ende1,ig4);
+		Evento ev27 = new Evento(null, "Grupo de Estudos Maná", "25082018", "20:00", "25082018", "22:00","Reunião Semanal", "Grupo", true, ende3,ig1);
+		Evento ev28 = new Evento(null, "União Presbiteriana de Homens", "22082018", "19:30", "22082018", "21:30","Reunião Mensal", "Homens", false, ende2,ig1);
+		Evento ev29 = new Evento(null, "Grupo de Estudo Alfa e Ômega", "21082018", "20:00", "21082018", "22:00","Reunião Semanal", "Grupo", true, ende1,ig1);
+		Evento ev30 = new Evento(null, "Coral Central", "25082018", "07:00", "25082018", "09:00", "Ensaio Semanal","Coral", true, ende3,ig1);
+
+		eventoRepository.saveAll(Arrays.asList(ev1,  ev2,  ev3,  ev4,  ev5,  ev6,  ev7,  ev8,  ev9,  ev10,
+											   ev11, ev12, ev13, ev14, ev15, ev16, ev17, ev18, ev19, ev20,
+											   ev21, ev22, ev23, ev24, ev25, ev26, ev27, ev28, ev29, ev30));
 		
 	}
 
